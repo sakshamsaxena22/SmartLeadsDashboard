@@ -92,7 +92,7 @@ export const leadService = {
 
     if (
       user.role === UserRole.SALES &&
-      lead.createdBy._id.toString() !== user._id.toString()
+      (lead.createdBy as any)._id.toString() !== (user._id as any).toString()
     ) {
       throw new AppError('You do not have permission to view this lead.', 403);
     }
@@ -108,7 +108,7 @@ export const leadService = {
 
     if (
       user.role === UserRole.SALES &&
-      lead.createdBy.toString() !== user._id.toString()
+      lead.createdBy.toString() !== (user._id as any).toString()
     ) {
       throw new AppError('You can only edit your own leads.', 403);
     }

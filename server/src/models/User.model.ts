@@ -8,6 +8,8 @@ export interface IUserDocument extends Document {
   password: string;
   role: UserRole;
   comparePassword(candidatePassword: string): Promise<boolean>;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const userSchema = new Schema<IUserDocument>(

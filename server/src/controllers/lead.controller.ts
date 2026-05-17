@@ -6,7 +6,7 @@ import { LeadQuerySchemaType } from '../../../shared/validators';
 export const leadController = {
   async create(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
-      const lead = await leadService.create(req.body, req.user!._id.toString());
+      const lead = await leadService.create(req.body, (req.user as any)._id.toString());
       sendSuccess({ res, data: lead, message: 'Lead created successfully', statusCode: 201 });
     } catch (error) {
       next(error);

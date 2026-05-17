@@ -7,6 +7,8 @@ export interface ILeadDocument extends Document {
   status: LeadStatus;
   source: LeadSource;
   createdBy: Types.ObjectId;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const leadSchema = new Schema<ILeadDocument>(

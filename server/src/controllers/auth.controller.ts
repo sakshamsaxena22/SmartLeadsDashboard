@@ -57,11 +57,11 @@ export const authController = {
 
   async getMe(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
-      const user = await authService.getMe(req.user!._id.toString());
+      const user = await authService.getMe((req.user as any)._id.toString());
       sendSuccess({
         res,
         data: {
-          _id: user._id.toString(),
+          _id: (user._id as any).toString(),
           name: user.name,
           email: user.email,
           role: user.role,

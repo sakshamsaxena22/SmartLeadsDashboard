@@ -26,14 +26,14 @@ export const authService = {
       role: (data.role as UserRole) || UserRole.SALES,
     });
 
-    const tokenPayload = { userId: user._id.toString(), role: user.role };
+    const tokenPayload = { userId: (user._id as any).toString(), role: user.role };
     const accessToken = generateAccessToken(tokenPayload);
     const refreshToken = generateRefreshToken(tokenPayload);
 
     return {
       auth: {
         user: {
-          _id: user._id.toString(),
+          _id: (user._id as any).toString(),
           name: user.name,
           email: user.email,
           role: user.role,
@@ -55,14 +55,14 @@ export const authService = {
       throw new AppError('Invalid email or password.', 401);
     }
 
-    const tokenPayload = { userId: user._id.toString(), role: user.role };
+    const tokenPayload = { userId: (user._id as any).toString(), role: user.role };
     const accessToken = generateAccessToken(tokenPayload);
     const refreshToken = generateRefreshToken(tokenPayload);
 
     return {
       auth: {
         user: {
-          _id: user._id.toString(),
+          _id: (user._id as any).toString(),
           name: user.name,
           email: user.email,
           role: user.role,
