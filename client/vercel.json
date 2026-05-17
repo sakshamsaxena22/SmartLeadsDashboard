@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://smartleads-server.onrender.com/api/:path*"
+      "destination": "https://smart-leads-dashboard-z8uq.onrender.com/api/:path*"
     }
   ]
 }
