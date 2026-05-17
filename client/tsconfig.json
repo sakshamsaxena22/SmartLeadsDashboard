@@ -8,6 +8,11 @@
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "zod": ["node_modules/zod"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
